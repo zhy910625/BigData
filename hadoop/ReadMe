@@ -1,0 +1,30 @@
+hdfs namenode -format
+start-dfs.sh
+
+hdfs dfs -mkdir /user
+hdfs dfs -mkdir /user/hongyu
+hdfs dfs -mkdir /user/hongyu/input
+
+hdfs dfs -put /home/hongyu/input/Q1.txt /user/hongyu/input
+hdfs dfs -put /home/hongyu/input/business.csv /user/hongyu/input
+hdfs dfs -put /home/hongyu/input/review.txt /user/hongyu/input
+
+Question1:
+cd /home/hongyu/BigData/Question1
+hadoop jar CommonFriends.jar CommonFriends /user/hongyu/input/Q1.txt /user/hongyu/CFResult
+
+
+Question2:
+cd /home/hongyu/BigData/Question2
+hadoop jar tenFriends.jar tenFriends /user/hongyu/input/Q1.txt /user/hongyu/TFResult
+
+
+Question3:
+cd /home/hongyu/BigData/Question3
+hadoop jar BusinessTen.jar BusinessTen /user/hongyu/input/business.csv /user/hongyu/input/review.csv /user/hongyu/output /user/hongyu/BTResult
+
+
+Question2:
+cd /home/hongyu/BigData/Question2
+hadoop jar CustomerRating.jar CustomerRating /user/hongyu/input/review.csv /user/hongyu/CusRatingResult /user/hongyu/input/business.csv
+
